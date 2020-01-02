@@ -11,11 +11,11 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController {
-
+    @IBOutlet weak var table: WKInterfaceTable!
+    var answers = [String]()
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        // Configure interface objects here.
     }
     
     override func willActivate() {
@@ -28,4 +28,23 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
+    
+    
+    @IBAction func tapped(_ sender: Any) {
+        
+        if (answers.count == 0) {
+            answers = ["SENTRAL", "STERNAL", "ENTILES", "DENNEDA"]
+            print("Har blitt tapped, prøver å fylle lista!")
+        } else {
+            answers = []
+            print("Har blitt tapped, prøver å tømme lista!")
+        }
+        table.setNumberOfRows(answers.count, withRowType: "TableRow")
+        
+        for index in 0..<table.numberOfRows {
+          guard let controller = table.rowController(at: index) as? TableRow else { continue }
+
+          controller.answer = answers[index]
+        }
+    }
 }

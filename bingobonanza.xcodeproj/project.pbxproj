@@ -21,6 +21,7 @@
 		F31FDAA023B79EF200CF5DCF /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDA9F23B79EF200CF5DCF /* ExtensionDelegate.swift */; };
 		F31FDAA223B79EF200CF5DCF /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDAA123B79EF200CF5DCF /* ComplicationController.swift */; };
 		F31FDAA423B79EF300CF5DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31FDAA323B79EF300CF5DCF /* Assets.xcassets */; };
+		F3CB3A8B23BA965400D12EC9 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB3A8A23BA965400D12EC9 /* TableRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		F31FDAA123B79EF200CF5DCF /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		F31FDAA323B79EF300CF5DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F31FDAA523B79EF300CF5DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3CB3A8A23BA965400D12EC9 /* TableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				F31FDAA123B79EF200CF5DCF /* ComplicationController.swift */,
 				F31FDAA323B79EF300CF5DCF /* Assets.xcassets */,
 				F31FDAA523B79EF300CF5DCF /* Info.plist */,
+				F3CB3A8A23BA965400D12EC9 /* TableRow.swift */,
 			);
 			path = "bingobonanza WatchKit Extension";
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F31FDAA023B79EF200CF5DCF /* ExtensionDelegate.swift in Sources */,
+				F3CB3A8B23BA965400D12EC9 /* TableRow.swift in Sources */,
 				F31FDA9E23B79EF200CF5DCF /* InterfaceController.swift in Sources */,
 				F31FDAA223B79EF200CF5DCF /* ComplicationController.swift in Sources */,
 			);
