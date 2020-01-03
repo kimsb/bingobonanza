@@ -9,41 +9,74 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller fullBounds="YES" fullScreen="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="bingobonanza_WatchKit_App" customModuleProvider="target">
+                <controller fullScreen="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="bingobonanza_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group width="1" height="1" alignment="center" layout="vertical" id="Bxv-Lz-Cft">
-                            <items>
-                                <label width="136" height="39" alignment="center" text="AELNRST" textAlignment="center" minimumScaleFactor="0.5" id="KKZ-5v-8BN">
-                                    <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
-                                </label>
-                                <table alignment="left" id="Wsy-dm-vWt">
-                                    <items>
-                                        <tableRow identifier="TableRow" id="4af-kS-nyU" customClass="TableRow" customModule="bingobonanza_WatchKit_Extension">
-                                            <group key="rootItem" width="1" alignment="left" id="Ve8-cA-DJA">
-                                                <items>
-                                                    <label width="136" height="67" alignment="center" text="SENTRAL" textAlignment="center" id="Inf-L1-8CZ">
-                                                        <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
-                                                    </label>
-                                                </items>
-                                            </group>
-                                            <connections>
-                                                <outlet property="tableRowLabel" destination="Inf-L1-8CZ" id="jXe-kt-ryp"/>
-                                            </connections>
-                                        </tableRow>
-                                    </items>
-                                </table>
-                            </items>
+                        <label width="136" height="32" alignment="center" text="Due: 244" textAlignment="left" id="OWL-KJ-JlM">
                             <gestureRecognizers>
-                                <tapGestureRecognizer id="gsb-dv-L9J">
+                                <tapGestureRecognizer id="o1W-Zh-iiG" userLabel="infoTapRecognizer">
                                     <connections>
-                                        <action selector="tapped:" destination="AgC-eL-Hgc" id="aYX-0M-WLh"/>
+                                        <action selector="infoTapped:" destination="AgC-eL-Hgc" id="nEx-xh-ZS0"/>
                                     </connections>
                                 </tapGestureRecognizer>
+                                <swipeGestureRecognizer id="Cjq-ez-0Mv" userLabel="infoRightSwipe">
+                                    <connections>
+                                        <action selector="infoRightSwipe:" destination="AgC-eL-Hgc" id="SHy-t7-gOo"/>
+                                    </connections>
+                                </swipeGestureRecognizer>
                             </gestureRecognizers>
-                        </group>
+                        </label>
+                        <label width="136" height="41" alignment="center" textAlignment="center" minimumScaleFactor="0.5" id="KKZ-5v-8BN">
+                            <gestureRecognizers>
+                                <tapGestureRecognizer id="WGw-QR-niA" userLabel="anagramTapRecognizer">
+                                    <connections>
+                                        <action selector="anagramTapped:" destination="AgC-eL-Hgc" id="H6P-Ss-hXG"/>
+                                    </connections>
+                                </tapGestureRecognizer>
+                                <swipeGestureRecognizer id="bfI-RI-KPk" userLabel="anagramRightSwipe">
+                                    <connections>
+                                        <action selector="anagramRightSwipe:" destination="AgC-eL-Hgc" id="wxw-Y4-8x0"/>
+                                    </connections>
+                                </swipeGestureRecognizer>
+                            </gestureRecognizers>
+                            <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
+                        </label>
+                        <table alignment="left" spacing="0.0" id="Wsy-dm-vWt">
+                            <items>
+                                <tableRow identifier="TableRow" id="4af-kS-nyU" customClass="TableRow" customModule="bingobonanza_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="26" alignment="left" id="Ve8-cA-DJA">
+                                        <items>
+                                            <label width="136" height="25" alignment="center" textAlignment="center" id="Inf-L1-8CZ">
+                                                <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                                            </label>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="tableRowLabel" destination="Inf-L1-8CZ" id="jXe-kt-ryp"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                            <gestureRecognizers>
+                                <tapGestureRecognizer id="Yic-IA-yPe" userLabel="tableTapRecognizer">
+                                    <connections>
+                                        <action selector="tableTapped:" destination="AgC-eL-Hgc" id="Yae-JP-s0N"/>
+                                    </connections>
+                                </tapGestureRecognizer>
+                                <swipeGestureRecognizer delaysTouchesBegan="YES" id="kQj-T0-HfF" userLabel="tableRightSwipe">
+                                    <connections>
+                                        <action selector="tableRightSwipe:" destination="AgC-eL-Hgc" id="FMn-Ux-nzl"/>
+                                    </connections>
+                                </swipeGestureRecognizer>
+                            </gestureRecognizers>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </table>
                     </items>
                     <connections>
+                        <outlet property="anagramLabel" destination="KKZ-5v-8BN" id="88a-8v-nN6"/>
+                        <outlet property="infoLabel" destination="OWL-KJ-JlM" id="gVK-wJ-c0y"/>
                         <outlet property="table" destination="Wsy-dm-vWt" id="iDg-tc-p1K"/>
+                        <outlet property="tableTapRecognizer" destination="Yic-IA-yPe" id="BPR-yk-ZW9"/>
                     </connections>
                 </controller>
             </objects>

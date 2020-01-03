@@ -15,6 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if !SessionHandler.shared.isSuported() {
+            print("WCSession not supported (f.e. on iPad).")
+        }
+        print("starter loading")
+        SessionHandler.shared.loadQuestions()
+        print("ferdig med loading")
+        
         return true
     }
 

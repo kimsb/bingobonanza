@@ -21,7 +21,17 @@
 		F31FDAA023B79EF200CF5DCF /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDA9F23B79EF200CF5DCF /* ExtensionDelegate.swift */; };
 		F31FDAA223B79EF200CF5DCF /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDAA123B79EF200CF5DCF /* ComplicationController.swift */; };
 		F31FDAA423B79EF300CF5DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31FDAA323B79EF300CF5DCF /* Assets.xcassets */; };
+		F392AE1923BE76F10027C81C /* TableRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392AE1823BE76F10027C81C /* TableRowCell.swift */; };
 		F3CB3A8B23BA965400D12EC9 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB3A8A23BA965400D12EC9 /* TableRow.swift */; };
+		F3F0A10223BE658700AEF5F0 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F0A10123BE658700AEF5F0 /* SessionHandler.swift */; };
+		F3F3352623BF2DBB006CCCFA /* 7-nye.txt in Resources */ = {isa = PBXBuildFile; fileRef = F3F3352523BF2DBB006CCCFA /* 7-nye.txt */; };
+		F3F3352923BF315B006CCCFA /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F3352823BF315B006CCCFA /* Questions.swift */; };
+		F3F3352B23BF377A006CCCFA /* 7-sett.txt in Resources */ = {isa = PBXBuildFile; fileRef = F3F3352A23BF377A006CCCFA /* 7-sett.txt */; };
+		F3F3352D23BF37E0006CCCFA /* 8-anki.txt in Resources */ = {isa = PBXBuildFile; fileRef = F3F3352C23BF37E0006CCCFA /* 8-anki.txt */; };
+		F3F3352F23BF37ED006CCCFA /* C-anki.txt in Resources */ = {isa = PBXBuildFile; fileRef = F3F3352E23BF37ED006CCCFA /* C-anki.txt */; };
+		F3F3353123BF3805006CCCFA /* W-anki.txt in Resources */ = {isa = PBXBuildFile; fileRef = F3F3353023BF3805006CCCFA /* W-anki.txt */; };
+		F3F36F6E23BE6BE2001610D8 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F36F6D23BE6BE2001610D8 /* Question.swift */; };
+		F3F36F6F23BE6BE2001610D8 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F36F6D23BE6BE2001610D8 /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +95,16 @@
 		F31FDAA123B79EF200CF5DCF /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		F31FDAA323B79EF300CF5DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F31FDAA523B79EF300CF5DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F392AE1823BE76F10027C81C /* TableRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowCell.swift; sourceTree = "<group>"; };
 		F3CB3A8A23BA965400D12EC9 /* TableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
+		F3F0A10123BE658700AEF5F0 /* SessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
+		F3F3352523BF2DBB006CCCFA /* 7-nye.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "7-nye.txt"; sourceTree = "<group>"; };
+		F3F3352823BF315B006CCCFA /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
+		F3F3352A23BF377A006CCCFA /* 7-sett.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "7-sett.txt"; sourceTree = "<group>"; };
+		F3F3352C23BF37E0006CCCFA /* 8-anki.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "8-anki.txt"; sourceTree = "<group>"; };
+		F3F3352E23BF37ED006CCCFA /* C-anki.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "C-anki.txt"; sourceTree = "<group>"; };
+		F3F3353023BF3805006CCCFA /* W-anki.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "W-anki.txt"; sourceTree = "<group>"; };
+		F3F36F6D23BE6BE2001610D8 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +148,7 @@
 		F31FDA7723B79EEA00CF5DCF /* bingobonanza */ = {
 			isa = PBXGroup;
 			children = (
+				F3F3352723BF2EA0006CCCFA /* Resources */,
 				F31FDA7823B79EEA00CF5DCF /* AppDelegate.swift */,
 				F31FDA7A23B79EEA00CF5DCF /* SceneDelegate.swift */,
 				F31FDA7C23B79EEA00CF5DCF /* ViewController.swift */,
@@ -136,6 +156,10 @@
 				F31FDA8123B79EF000CF5DCF /* Assets.xcassets */,
 				F31FDA8323B79EF000CF5DCF /* LaunchScreen.storyboard */,
 				F31FDA8623B79EF000CF5DCF /* Info.plist */,
+				F3F0A10123BE658700AEF5F0 /* SessionHandler.swift */,
+				F3F36F6D23BE6BE2001610D8 /* Question.swift */,
+				F392AE1823BE76F10027C81C /* TableRowCell.swift */,
+				F3F3352823BF315B006CCCFA /* Questions.swift */,
 			);
 			path = bingobonanza;
 			sourceTree = "<group>";
@@ -161,6 +185,18 @@
 				F3CB3A8A23BA965400D12EC9 /* TableRow.swift */,
 			);
 			path = "bingobonanza WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		F3F3352723BF2EA0006CCCFA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F3F3352523BF2DBB006CCCFA /* 7-nye.txt */,
+				F3F3352A23BF377A006CCCFA /* 7-sett.txt */,
+				F3F3352C23BF37E0006CCCFA /* 8-anki.txt */,
+				F3F3352E23BF37ED006CCCFA /* C-anki.txt */,
+				F3F3353023BF3805006CCCFA /* W-anki.txt */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,8 +302,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F31FDA8523B79EF000CF5DCF /* LaunchScreen.storyboard in Resources */,
+				F3F3352B23BF377A006CCCFA /* 7-sett.txt in Resources */,
 				F31FDA8223B79EF000CF5DCF /* Assets.xcassets in Resources */,
 				F31FDA8023B79EEA00CF5DCF /* Main.storyboard in Resources */,
+				F3F3352F23BF37ED006CCCFA /* C-anki.txt in Resources */,
+				F3F3352D23BF37E0006CCCFA /* 8-anki.txt in Resources */,
+				F3F3352623BF2DBB006CCCFA /* 7-nye.txt in Resources */,
+				F3F3353123BF3805006CCCFA /* W-anki.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +336,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3F36F6E23BE6BE2001610D8 /* Question.swift in Sources */,
+				F392AE1923BE76F10027C81C /* TableRowCell.swift in Sources */,
 				F31FDA7D23B79EEA00CF5DCF /* ViewController.swift in Sources */,
+				F3F3352923BF315B006CCCFA /* Questions.swift in Sources */,
+				F3F0A10223BE658700AEF5F0 /* SessionHandler.swift in Sources */,
 				F31FDA7923B79EEA00CF5DCF /* AppDelegate.swift in Sources */,
 				F31FDA7B23B79EEA00CF5DCF /* SceneDelegate.swift in Sources */,
 			);
@@ -305,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3F36F6F23BE6BE2001610D8 /* Question.swift in Sources */,
 				F31FDAA023B79EF200CF5DCF /* ExtensionDelegate.swift in Sources */,
 				F3CB3A8B23BA965400D12EC9 /* TableRow.swift in Sources */,
 				F31FDA9E23B79EF200CF5DCF /* InterfaceController.swift in Sources */,
