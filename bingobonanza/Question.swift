@@ -26,7 +26,9 @@ class Question: NSObject, Codable, NSCoding {
     
     func setTimeToShow(answeredCorrect: Bool) {
         if (answeredCorrect) {
-            timeToShow = Calendar.current.date(byAdding: .day, value: daysToAdd, to: Date())!
+            let dayToShow = Calendar.current.date(byAdding: .day, value: daysToAdd, to: Date())!
+            let cal = Calendar(identifier: .gregorian)
+            timeToShow = cal.startOfDay (for: dayToShow)
             daysToAdd = isMature ? (daysToAdd * 2) : (daysToAdd * 3)
         } else {
             timeToShow = Calendar.current.date(byAdding: .minute, value: 5, to: Date())!

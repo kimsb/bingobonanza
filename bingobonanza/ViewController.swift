@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
     
+    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var listSegment: UISegmentedControl!
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var tableView: UITableView!
@@ -41,17 +42,15 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-    private let listKeys = ["7", "8", "C", "W"]
-    func showNextQuestion() {
+    func showNextQuestion(answered: Bool = false) {
         showingAnswers = false
-        
-        print("henter første question")
-        
-        question = SessionHandler.shared.getNextQuestion(listKey: listKeys[listSegment.selectedSegmentIndex], lastAnswered: question)
+                        
+        question = SessionHandler.shared.getNextQuestion(lastAnswered: answered ? question : nil)
+        let due = SessionHandler.shared.getDue()
+        infoLabel.text = "\(due > 0 ? "Due: \(due) " : "") (\(String(format: "%.2f", SessionHandler.shared.getPercentage()))%)"
+                
         anagramLabel.text = question?.anagram
         tableView.reloadData()
-        
-        print("showing next question: \(question!.anagram)")
     }
     
     @IBAction func tapped(_ sender: Any) {
@@ -60,13 +59,11 @@ class ViewController: UIViewController, UITableViewDataSource {
             let location = tapRecognizer.location(in: self.view)
             
             if (location.x < 100) {
-                print("Wrong answer")
                 question!.setTimeToShow(answeredCorrect: false)
             } else {
-                print("Correct!")
                 question!.setTimeToShow(answeredCorrect: true)
             }
-            showNextQuestion()
+            showNextQuestion(answered: true)
         } else {
             showingAnswers = true
             tableView.reloadData()
@@ -75,6 +72,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func listSegmentChanged(_ sender: Any) {
+        SessionHandler.shared.setCurrentKey(keyIndex: listSegment.selectedSegmentIndex)
         showNextQuestion()
     }
     

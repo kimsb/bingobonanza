@@ -21,12 +21,12 @@
 		F31FDAA023B79EF200CF5DCF /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDA9F23B79EF200CF5DCF /* ExtensionDelegate.swift */; };
 		F31FDAA223B79EF200CF5DCF /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDAA123B79EF200CF5DCF /* ComplicationController.swift */; };
 		F31FDAA423B79EF300CF5DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31FDAA323B79EF300CF5DCF /* Assets.xcassets */; };
+		F38FE8EC23BFDC44003BF0AF /* 7-sett.txt in Resources */ = {isa = PBXBuildFile; fileRef = F38FE8EA23BFDC44003BF0AF /* 7-sett.txt */; };
+		F38FE8ED23BFDC44003BF0AF /* 7-nye.txt in Resources */ = {isa = PBXBuildFile; fileRef = F38FE8EB23BFDC44003BF0AF /* 7-nye.txt */; };
 		F392AE1923BE76F10027C81C /* TableRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392AE1823BE76F10027C81C /* TableRowCell.swift */; };
 		F3CB3A8B23BA965400D12EC9 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB3A8A23BA965400D12EC9 /* TableRow.swift */; };
 		F3F0A10223BE658700AEF5F0 /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F0A10123BE658700AEF5F0 /* SessionHandler.swift */; };
-		F3F3352623BF2DBB006CCCFA /* 7-nye.txt in Resources */ = {isa = PBXBuildFile; fileRef = F3F3352523BF2DBB006CCCFA /* 7-nye.txt */; };
 		F3F3352923BF315B006CCCFA /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F3352823BF315B006CCCFA /* Questions.swift */; };
-		F3F3352B23BF377A006CCCFA /* 7-sett.txt in Resources */ = {isa = PBXBuildFile; fileRef = F3F3352A23BF377A006CCCFA /* 7-sett.txt */; };
 		F3F3352D23BF37E0006CCCFA /* 8-anki.txt in Resources */ = {isa = PBXBuildFile; fileRef = F3F3352C23BF37E0006CCCFA /* 8-anki.txt */; };
 		F3F3352F23BF37ED006CCCFA /* C-anki.txt in Resources */ = {isa = PBXBuildFile; fileRef = F3F3352E23BF37ED006CCCFA /* C-anki.txt */; };
 		F3F3353123BF3805006CCCFA /* W-anki.txt in Resources */ = {isa = PBXBuildFile; fileRef = F3F3353023BF3805006CCCFA /* W-anki.txt */; };
@@ -95,12 +95,12 @@
 		F31FDAA123B79EF200CF5DCF /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		F31FDAA323B79EF300CF5DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F31FDAA523B79EF300CF5DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F38FE8EA23BFDC44003BF0AF /* 7-sett.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "7-sett.txt"; sourceTree = "<group>"; };
+		F38FE8EB23BFDC44003BF0AF /* 7-nye.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "7-nye.txt"; sourceTree = "<group>"; };
 		F392AE1823BE76F10027C81C /* TableRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowCell.swift; sourceTree = "<group>"; };
 		F3CB3A8A23BA965400D12EC9 /* TableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
 		F3F0A10123BE658700AEF5F0 /* SessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
-		F3F3352523BF2DBB006CCCFA /* 7-nye.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "7-nye.txt"; sourceTree = "<group>"; };
 		F3F3352823BF315B006CCCFA /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
-		F3F3352A23BF377A006CCCFA /* 7-sett.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "7-sett.txt"; sourceTree = "<group>"; };
 		F3F3352C23BF37E0006CCCFA /* 8-anki.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "8-anki.txt"; sourceTree = "<group>"; };
 		F3F3352E23BF37ED006CCCFA /* C-anki.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "C-anki.txt"; sourceTree = "<group>"; };
 		F3F3353023BF3805006CCCFA /* W-anki.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "W-anki.txt"; sourceTree = "<group>"; };
@@ -190,8 +190,8 @@
 		F3F3352723BF2EA0006CCCFA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F3F3352523BF2DBB006CCCFA /* 7-nye.txt */,
-				F3F3352A23BF377A006CCCFA /* 7-sett.txt */,
+				F38FE8EB23BFDC44003BF0AF /* 7-nye.txt */,
+				F38FE8EA23BFDC44003BF0AF /* 7-sett.txt */,
 				F3F3352C23BF37E0006CCCFA /* 8-anki.txt */,
 				F3F3352E23BF37ED006CCCFA /* C-anki.txt */,
 				F3F3353023BF3805006CCCFA /* W-anki.txt */,
@@ -301,13 +301,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F38FE8EC23BFDC44003BF0AF /* 7-sett.txt in Resources */,
 				F31FDA8523B79EF000CF5DCF /* LaunchScreen.storyboard in Resources */,
-				F3F3352B23BF377A006CCCFA /* 7-sett.txt in Resources */,
 				F31FDA8223B79EF000CF5DCF /* Assets.xcassets in Resources */,
 				F31FDA8023B79EEA00CF5DCF /* Main.storyboard in Resources */,
+				F38FE8ED23BFDC44003BF0AF /* 7-nye.txt in Resources */,
 				F3F3352F23BF37ED006CCCFA /* C-anki.txt in Resources */,
 				F3F3352D23BF37E0006CCCFA /* 8-anki.txt in Resources */,
-				F3F3352623BF2DBB006CCCFA /* 7-nye.txt in Resources */,
 				F3F3353123BF3805006CCCFA /* W-anki.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

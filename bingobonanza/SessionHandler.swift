@@ -19,6 +19,7 @@ class SessionHandler : NSObject, WCSessionDelegate {
     
     private var questions = [String:Questions]()
     private var lastQuestion: Question?
+    private let listKeys = ["7", "8", "C", "W"]
     private var currentKey = "7"
     
     override init() {
@@ -88,20 +89,12 @@ class SessionHandler : NSObject, WCSessionDelegate {
                              "due": getDue()])
                 return
             }
-            
-            if (correct!) {
-                print("last answer was correct!")
-            } else {
-                print("last answer was wrong...")
-            }
             lastQuestion!.setTimeToShow(answeredCorrect: correct!)
             print("last anagram: \(lastAnagram)")
         }
         
-        let question = getNextQuestion(listKey: listKey, lastAnswered: lastQuestion)
-        
-        print("returning answers: \(question.answers)")
-        
+        let question = getNextQuestion(lastAnswered: lastQuestion)
+                
         replyHandler(["anagram": question.anagram,
                       "answers": question.answers,
                       "due": getDue()])
@@ -112,8 +105,16 @@ class SessionHandler : NSObject, WCSessionDelegate {
         questions[currentKey]!.getDue()
     }
     
-    func getNextQuestion(listKey: String, lastAnswered: Question? = nil) -> Question {
-        lastQuestion = questions[listKey]!.getNextQuestion(lastQuestion: lastAnswered)
+    func getPercentage() -> Double {
+        questions[currentKey]!.getPercentage()
+    }
+    
+    func setCurrentKey(keyIndex: Int) {
+        currentKey = listKeys[keyIndex]
+    }
+    
+    func getNextQuestion(lastAnswered: Question? = nil) -> Question {
+        lastQuestion = questions[currentKey]!.getNextQuestion(lastQuestion: lastAnswered)
         return lastQuestion!
     }
     
@@ -126,16 +127,11 @@ class SessionHandler : NSObject, WCSessionDelegate {
     func loadQuestions() {
         if let loadedQuestions = NSKeyedUnarchiver.unarchiveObject(withFile: Questions.ArchiveURL.path) as? [String:Questions] {
             questions = loadedQuestions
-            print("loader questions fra device")
-            print("7 count: \(String(describing: questions["7"]?.newQuestions.count))")
         } else {
             
             let nye = linesToQuestions(lines: loadQuestionsFromResources(resource: "7-nye"))
             let mature = linesToQuestions(lines: loadQuestionsFromResources(resource: "7-sett"), isMature: true)
-            
-            print("nye 7 = \(nye.count)")
-            print("mature 7 = \(mature.count)")
-            
+                        
             var alleSjuere = [Question]()
             for index in 0..<nye.count {
                 if (index < mature.count) {
@@ -144,8 +140,8 @@ class SessionHandler : NSObject, WCSessionDelegate {
                 alleSjuere.append(nye[index])
             }
             
-            print("alle 7 = \(alleSjuere.count)")
-            
+            print("alleSjuere: \(alleSjuere.count)")
+                        
             questions["7"] = Questions(newQuestions: alleSjuere)
             questions["8"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "8-anki")))
             questions["C"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "C-anki")))
@@ -161,9 +157,6 @@ class SessionHandler : NSObject, WCSessionDelegate {
             let answers = components[1].components(separatedBy: " ")
             questionArray.append(Question(anagram: anagram, answers: answers, isMature: isMature))
         }
-        print("isMature: \(isMature)")
-        print("first: \(questionArray.first!.anagram) \(questionArray.first!.answers)")
-        print("last: \(questionArray.last!.anagram) \(questionArray.last!.answers)")
         return questionArray
     }
     

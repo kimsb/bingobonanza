@@ -20,10 +20,19 @@ class Questions: NSObject, Codable, NSCoding {
     func getDue() -> Int {
         var dueCount = 0
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
-        while (dueCount < seenQuestions.count && seenQuestions[dueCount].timeToShow < tomorrow) {
+        let cal = Calendar(identifier: .gregorian)
+        let startOfTomorrow = cal.startOfDay (for: tomorrow)
+        
+        while (dueCount < seenQuestions.count && seenQuestions[dueCount].timeToShow < startOfTomorrow) {
             dueCount = dueCount + 1
         }
         return dueCount
+    }
+    
+    func getPercentage() -> Double {
+        let seen = Double(seenQuestions.count)
+        let new = Double(newQuestions.count)
+        return 100 * (seen / (seen + new))
     }
     
     func getNextQuestion(lastQuestion: Question? = nil) -> Question {
@@ -35,9 +44,9 @@ class Questions: NSObject, Codable, NSCoding {
             }
             seenQuestions.insert(lastQuestion, at: 0)
             seenQuestions = seenQuestions.sorted(by: { $0.timeToShow < $1.timeToShow } )
-        }
-        DispatchQueue.global(qos: .background).async {
-            SessionHandler.shared.saveQuestions()
+            DispatchQueue.global(qos: .background).async {
+                SessionHandler.shared.saveQuestions()
+            }
         }
         
         if (newQuestions.isEmpty || (!seenQuestions.isEmpty && seenQuestions.first!.timeToShow < Date())) {
