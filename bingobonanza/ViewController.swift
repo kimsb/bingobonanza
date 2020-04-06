@@ -70,7 +70,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func daysAddedAnimation(text: String) {
-        let answeredCorrect = text != "1"
+        let answeredCorrect = text != "0"
         daysAddedLabel.text = answeredCorrect ? "+\(text)" : "X"
         daysAddedLabel.textColor = answeredCorrect ? UIColor.green : UIColor.red
 
