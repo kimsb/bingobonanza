@@ -21,6 +21,11 @@
 		F31FDAA023B79EF200CF5DCF /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDA9F23B79EF200CF5DCF /* ExtensionDelegate.swift */; };
 		F31FDAA223B79EF200CF5DCF /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDAA123B79EF200CF5DCF /* ComplicationController.swift */; };
 		F31FDAA423B79EF300CF5DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31FDAA323B79EF300CF5DCF /* Assets.xcassets */; };
+		F36EC55D243BACF20041DC36 /* puggeliste-nye-2020.txt in Resources */ = {isa = PBXBuildFile; fileRef = F36EC55C243BACF20041DC36 /* puggeliste-nye-2020.txt */; };
+		F36EC561243BB7EA0041DC36 /* slettes-7.txt in Resources */ = {isa = PBXBuildFile; fileRef = F36EC560243BB7EA0041DC36 /* slettes-7.txt */; };
+		F36EC563243BBC1B0041DC36 /* slettes-8.txt in Resources */ = {isa = PBXBuildFile; fileRef = F36EC562243BBC1B0041DC36 /* slettes-8.txt */; };
+		F36EC565243BBCEF0041DC36 /* slettes-C.txt in Resources */ = {isa = PBXBuildFile; fileRef = F36EC564243BBCEF0041DC36 /* slettes-C.txt */; };
+		F37349792407336900E83B3D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37349782407336900E83B3D /* UIView.swift */; };
 		F38FE8EC23BFDC44003BF0AF /* 7-sett.txt in Resources */ = {isa = PBXBuildFile; fileRef = F38FE8EA23BFDC44003BF0AF /* 7-sett.txt */; };
 		F38FE8ED23BFDC44003BF0AF /* 7-nye.txt in Resources */ = {isa = PBXBuildFile; fileRef = F38FE8EB23BFDC44003BF0AF /* 7-nye.txt */; };
 		F392AE1923BE76F10027C81C /* TableRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392AE1823BE76F10027C81C /* TableRowCell.swift */; };
@@ -95,6 +100,11 @@
 		F31FDAA123B79EF200CF5DCF /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		F31FDAA323B79EF300CF5DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F31FDAA523B79EF300CF5DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F36EC55C243BACF20041DC36 /* puggeliste-nye-2020.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "puggeliste-nye-2020.txt"; sourceTree = "<group>"; };
+		F36EC560243BB7EA0041DC36 /* slettes-7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "slettes-7.txt"; sourceTree = "<group>"; };
+		F36EC562243BBC1B0041DC36 /* slettes-8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "slettes-8.txt"; sourceTree = "<group>"; };
+		F36EC564243BBCEF0041DC36 /* slettes-C.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "slettes-C.txt"; sourceTree = "<group>"; };
+		F37349782407336900E83B3D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		F38FE8EA23BFDC44003BF0AF /* 7-sett.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "7-sett.txt"; sourceTree = "<group>"; };
 		F38FE8EB23BFDC44003BF0AF /* 7-nye.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "7-nye.txt"; sourceTree = "<group>"; };
 		F392AE1823BE76F10027C81C /* TableRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowCell.swift; sourceTree = "<group>"; };
@@ -160,6 +170,7 @@
 				F3F36F6D23BE6BE2001610D8 /* Question.swift */,
 				F392AE1823BE76F10027C81C /* TableRowCell.swift */,
 				F3F3352823BF315B006CCCFA /* Questions.swift */,
+				F37349782407336900E83B3D /* UIView.swift */,
 			);
 			path = bingobonanza;
 			sourceTree = "<group>";
@@ -190,11 +201,15 @@
 		F3F3352723BF2EA0006CCCFA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F36EC562243BBC1B0041DC36 /* slettes-8.txt */,
+				F36EC560243BB7EA0041DC36 /* slettes-7.txt */,
+				F36EC55C243BACF20041DC36 /* puggeliste-nye-2020.txt */,
 				F38FE8EB23BFDC44003BF0AF /* 7-nye.txt */,
 				F38FE8EA23BFDC44003BF0AF /* 7-sett.txt */,
 				F3F3352C23BF37E0006CCCFA /* 8-anki.txt */,
 				F3F3352E23BF37ED006CCCFA /* C-anki.txt */,
 				F3F3353023BF3805006CCCFA /* W-anki.txt */,
+				F36EC564243BBCEF0041DC36 /* slettes-C.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -302,12 +317,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F38FE8EC23BFDC44003BF0AF /* 7-sett.txt in Resources */,
+				F36EC563243BBC1B0041DC36 /* slettes-8.txt in Resources */,
+				F36EC561243BB7EA0041DC36 /* slettes-7.txt in Resources */,
+				F36EC565243BBCEF0041DC36 /* slettes-C.txt in Resources */,
 				F31FDA8523B79EF000CF5DCF /* LaunchScreen.storyboard in Resources */,
 				F31FDA8223B79EF000CF5DCF /* Assets.xcassets in Resources */,
 				F31FDA8023B79EEA00CF5DCF /* Main.storyboard in Resources */,
 				F38FE8ED23BFDC44003BF0AF /* 7-nye.txt in Resources */,
 				F3F3352F23BF37ED006CCCFA /* C-anki.txt in Resources */,
 				F3F3352D23BF37E0006CCCFA /* 8-anki.txt in Resources */,
+				F36EC55D243BACF20041DC36 /* puggeliste-nye-2020.txt in Resources */,
 				F3F3353123BF3805006CCCFA /* W-anki.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F37349792407336900E83B3D /* UIView.swift in Sources */,
 				F3F36F6E23BE6BE2001610D8 /* Question.swift in Sources */,
 				F392AE1923BE76F10027C81C /* TableRowCell.swift in Sources */,
 				F31FDA7D23B79EEA00CF5DCF /* ViewController.swift in Sources */,

@@ -45,9 +45,24 @@ class Questions: NSObject, Codable, NSCoding {
             seenQuestions.insert(lastQuestion, at: 0)
             seenQuestions = seenQuestions.sorted(by: { $0.timeToShow < $1.timeToShow } )
             DispatchQueue.global(qos: .background).async {
+                print("saver...")
                 SessionHandler.shared.saveQuestions()
             }
         }
+        
+        //BARE FOR Å SE HVOR MANGE SOM KOMMER:
+        var date = seenQuestions.first!.timeToShow
+        var count = 0
+        for q in seenQuestions {
+            if (date == q.timeToShow) {
+                count += 1
+            } else {
+                //print("date: \(date) - \(count)") 
+                date = q.timeToShow
+                count = 0
+            }
+        }
+        
         
         if (newQuestions.isEmpty || (!seenQuestions.isEmpty && seenQuestions.first!.timeToShow < Date())) {
             return seenQuestions.first!

@@ -94,10 +94,17 @@ class SessionHandler : NSObject, WCSessionDelegate {
         }
         
         let question = getNextQuestion(lastAnswered: lastQuestion)
-                
-        replyHandler(["anagram": question.anagram,
-                      "answers": question.answers,
-                      "due": getDue()])
+        
+        //dette blir stygt...
+        if (question != nil) {
+            replyHandler(["anagram": question!.anagram,
+            "answers": question!.answers,
+            "due": getDue()])
+        } else {
+            replyHandler(["anagram": "FAAAAIL",
+            "answers": "feilfeil",
+            "due": 999])
+        }
         
     }
     
@@ -113,9 +120,10 @@ class SessionHandler : NSObject, WCSessionDelegate {
         currentKey = listKeys[keyIndex]
     }
     
-    func getNextQuestion(lastAnswered: Question? = nil) -> Question {
-        lastQuestion = questions[currentKey]!.getNextQuestion(lastQuestion: lastAnswered)
-        return lastQuestion!
+    func getNextQuestion(lastAnswered: Question? = nil) -> Question? {
+        //TODO - denne krasjer når null
+        lastQuestion = questions[currentKey]?.getNextQuestion(lastQuestion: lastAnswered)
+        return lastQuestion
     }
     
     func saveQuestions() {
@@ -126,6 +134,58 @@ class SessionHandler : NSObject, WCSessionDelegate {
     
     func loadQuestions() {
         if let loadedQuestions = NSKeyedUnarchiver.unarchiveObject(withFile: Questions.ArchiveURL.path) as? [String:Questions] {
+            
+            //LEGGE TIL NYE ORD
+            /*let nye7 = linesToQuestions(lines: loadQuestionsFromResources(resource: "puggeliste-nye-2020"))
+            
+            print("første nye: \(nye7.first!.anagram): \(nye7.first!.answers)")
+            
+            let nyeAnagrammer = nye7.map { $0.anagram }
+            let fjernetNewQuestions = loadedQuestions["7"]!.newQuestions.filter{!nyeAnagrammer.contains($0.anagram)}
+            
+            let fjernetSeenQuestions = loadedQuestions["7"]!.seenQuestions.filter{!nyeAnagrammer.contains($0.anagram)}
+            
+            let nyeNewMedGamleNew = nye7 + fjernetNewQuestions
+            
+            loadedQuestions["7"]!.seenQuestions = fjernetSeenQuestions
+            loadedQuestions["7"]!.newQuestions = nyeNewMedGamleNew*/
+            
+            
+            
+            
+            //SLETTING
+            /*let slettes = loadQuestionsFromResources(resource: "slettes-C")
+            
+            //SLETTE FRA NEW
+            let loadedNye = loadedQuestions["C"]!.newQuestions
+            
+            print("loaded count: \(loadedNye.count)")
+            
+            let slettetAnswersNye = loadedNye.map { (question: Question) -> Question in
+                let mutable = question
+                mutable.answers = question.answers.filter{!slettes.contains($0)}
+                return mutable
+            }
+            let fjernetTommeAnswersNye = slettetAnswersNye.filter{!$0.answers.isEmpty}
+            print("fjernet count: \(fjernetTommeAnswersNye.count)")
+            
+            //SLETTE FRA SEEN
+            let loadedSeen = loadedQuestions["C"]!.seenQuestions
+                       
+            print("loaded seen count: \(loadedSeen.count)")
+                       
+            let slettetAnswersSeen = loadedSeen.map { (question: Question) -> Question in
+                let mutable = question
+                mutable.answers = question.answers.filter{!slettes.contains($0)}
+                return mutable
+            }
+            let fjernetTommeAnswersSeen = slettetAnswersSeen.filter{!$0.answers.isEmpty}
+            print("fjernet seen count: \(fjernetTommeAnswersSeen.count)")
+            
+            //loadedQuestions["C"]!.seenQuestions = fjernetTommeAnswersSeen
+            //loadedQuestions["C"]!.newQuestions = fjernetTommeAnswersNye*/
+            //SLETTING SLUTT - HUSK Å SVARE PÅ ET SPM, SÅ ENDRINGER BLIR LAGRET
+            
             questions = loadedQuestions
         } else {
             

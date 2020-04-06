@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var anagramLabel: UILabel!
+    @IBOutlet weak var daysAddedLabel: UILabel!
     var question: Question?
     var showingAnswers = false
     
@@ -58,17 +59,27 @@ class ViewController: UIViewController, UITableViewDataSource {
         if (showingAnswers) {
             let location = tapRecognizer.location(in: self.view)
             
-            if (location.x < 100) {
-                question!.setTimeToShow(answeredCorrect: false)
-            } else {
-                question!.setTimeToShow(answeredCorrect: true)
-            }
+            daysAddedAnimation(text: "\(question!.setTimeToShow(answeredCorrect: location.x > 100))")
+            
             showNextQuestion(answered: true)
         } else {
             showingAnswers = true
             tableView.reloadData()
         }
         
+    }
+    
+    func daysAddedAnimation(text: String) {
+        let answeredCorrect = text != "1"
+        daysAddedLabel.text = answeredCorrect ? "+\(text)" : "X"
+        daysAddedLabel.textColor = answeredCorrect ? UIColor.green : UIColor.red
+
+        daysAddedLabel.fadeOutAnimation(completion: {
+        (finished: Bool) -> Void in
+            self.daysAddedLabel.text = ""
+            self.daysAddedLabel.alpha = 1
+            self.daysAddedLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
     }
     
     @IBAction func listSegmentChanged(_ sender: Any) {

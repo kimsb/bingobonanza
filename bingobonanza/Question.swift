@@ -24,15 +24,25 @@ class Question: NSObject, Codable, NSCoding {
         self.isMature = isMature
     }
     
-    func setTimeToShow(answeredCorrect: Bool) {
+    func setTimeToShow(answeredCorrect: Bool) -> Int {
         if (answeredCorrect) {
+            let daysAdded = daysToAdd
+            print("TODAY: \(Date())")
+            print("DAYS TO ADD: \(daysToAdd)")
+            
             let dayToShow = Calendar.current.date(byAdding: .day, value: daysToAdd, to: Date())!
             let cal = Calendar(identifier: .gregorian)
             timeToShow = cal.startOfDay (for: dayToShow)
-            daysToAdd = isMature ? (daysToAdd * 2) : (daysToAdd * 3)
+            daysToAdd = isMature ? (daysToAdd * 4) : (daysToAdd * 3)
+            
+            print("SHOW: \(timeToShow)")
+            print("DAYS TO ADD: \(daysToAdd)")
+            return daysAdded
+            
         } else {
             timeToShow = Calendar.current.date(byAdding: .minute, value: 5, to: Date())!
             daysToAdd = 1
+            return 0
         }
     }
     
