@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-    func showNextQuestion(answered: Bool = false) {
+    @objc func showNextQuestion(answered: Bool = false) {
         showingAnswers = false
                         
         question = SessionHandler.shared.getNextQuestion(lastAnswered: answered ? question : nil)
@@ -85,6 +85,17 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBAction func listSegmentChanged(_ sender: Any) {
         SessionHandler.shared.setCurrentKey(keyIndex: listSegment.selectedSegmentIndex)
         showNextQuestion()
+    }
+ 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(showNextQuestion), name:UIApplication.didBecomeActiveNotification, object:UIApplication.shared
+        )
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
 }

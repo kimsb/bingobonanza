@@ -540,7 +540,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RH3SAY22R4;
+				DEVELOPMENT_TEAM = QKQ4UUV4L7;
 				INFOPLIST_FILE = "bingobonanza WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -562,7 +562,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RH3SAY22R4;
+				DEVELOPMENT_TEAM = QKQ4UUV4L7;
 				INFOPLIST_FILE = "bingobonanza WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -585,7 +585,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RH3SAY22R4;
+				DEVELOPMENT_TEAM = QKQ4UUV4L7;
 				IBSC_MODULE = bingobonanza_WatchKit_Extension;
 				INFOPLIST_FILE = "bingobonanza WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = moomin.bingobonanza.watchkitapp;
@@ -604,7 +604,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RH3SAY22R4;
+				DEVELOPMENT_TEAM = QKQ4UUV4L7;
 				IBSC_MODULE = bingobonanza_WatchKit_Extension;
 				INFOPLIST_FILE = "bingobonanza WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = moomin.bingobonanza.watchkitapp;
@@ -622,7 +622,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RH3SAY22R4;
+				DEVELOPMENT_TEAM = QKQ4UUV4L7;
 				INFOPLIST_FILE = bingobonanza/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -640,7 +640,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RH3SAY22R4;
+				DEVELOPMENT_TEAM = QKQ4UUV4L7;
 				INFOPLIST_FILE = bingobonanza/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

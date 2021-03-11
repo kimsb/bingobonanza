@@ -35,6 +35,7 @@ class InterfaceController: WKInterfaceController {
         super.willActivate()
         session.delegate = self
         session.activate()
+        getNextQuestion()
     }
     
     override func didDeactivate() {
