@@ -35,6 +35,10 @@ class Questions: NSObject, Codable, NSCoding {
         return 100 * (seen / (seen + new))
     }
     
+    func getSeen() -> Int {
+        return seenQuestions.count
+    }
+ 
     func getNextQuestion(lastQuestion: Question? = nil) -> Question {
         if let lastQuestion = lastQuestion {
             if (!newQuestions.isEmpty && newQuestions.first!.anagram == lastQuestion.anagram) {
@@ -51,7 +55,7 @@ class Questions: NSObject, Codable, NSCoding {
         }
         
         //BARE FOR Å SE HVOR MANGE SOM KOMMER:
-        var date = seenQuestions.first!.timeToShow
+        /*var date = seenQuestions.first!.timeToShow
         var count = 0
         for q in seenQuestions {
             if (date == q.timeToShow) {
@@ -61,7 +65,7 @@ class Questions: NSObject, Codable, NSCoding {
                 date = q.timeToShow
                 count = 0
             }
-        }
+        }*/
         
         
         if (newQuestions.isEmpty || (!seenQuestions.isEmpty && seenQuestions.first!.timeToShow < Date())) {

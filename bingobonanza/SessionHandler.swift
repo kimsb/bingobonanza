@@ -116,6 +116,10 @@ class SessionHandler : NSObject, WCSessionDelegate {
         questions[currentKey]!.getPercentage()
     }
     
+    func getSeenCount() -> Int {
+        questions[currentKey]!.getSeen()
+    }
+    
     func setCurrentKey(keyIndex: Int) {
         currentKey = listKeys[keyIndex]
     }
@@ -154,12 +158,12 @@ class SessionHandler : NSObject, WCSessionDelegate {
             
             
             //SLETTING
-            /*let slettes = loadQuestionsFromResources(resource: "slettes-C")
+            let slettes = loadQuestionsFromResources(resource: "slettes-8")
             
             //SLETTE FRA NEW
-            let loadedNye = loadedQuestions["C"]!.newQuestions
+            let loadedNye = loadedQuestions["8"]!.newQuestions
             
-            print("loaded count: \(loadedNye.count)")
+            print("antall usette: \(loadedNye.count)")
             
             let slettetAnswersNye = loadedNye.map { (question: Question) -> Question in
                 let mutable = question
@@ -167,29 +171,38 @@ class SessionHandler : NSObject, WCSessionDelegate {
                 return mutable
             }
             let fjernetTommeAnswersNye = slettetAnswersNye.filter{!$0.answers.isEmpty}
-            print("fjernet count: \(fjernetTommeAnswersNye.count)")
+            print("antall usette etter sletting: \(fjernetTommeAnswersNye.count)")
             
             //SLETTE FRA SEEN
-            let loadedSeen = loadedQuestions["C"]!.seenQuestions
+            let loadedSeen = loadedQuestions["8"]!.seenQuestions
                        
-            print("loaded seen count: \(loadedSeen.count)")
+            print("antall sette: \(loadedSeen.count)")
                        
             let slettetAnswersSeen = loadedSeen.map { (question: Question) -> Question in
                 let mutable = question
                 mutable.answers = question.answers.filter{!slettes.contains($0)}
+                
+                //For å legge til enkeltOrd (i anagrammer som finnes og er sett)
+                if (mutable.anagram == "AEGILORT" && !mutable.answers.contains("LIGATOER")) {
+                    print("legger til LIGATOER")
+                    mutable.answers.append("LIGATOER")
+                    
+                    print(mutable.answers)
+                }
+                
                 return mutable
             }
             let fjernetTommeAnswersSeen = slettetAnswersSeen.filter{!$0.answers.isEmpty}
-            print("fjernet seen count: \(fjernetTommeAnswersSeen.count)")
+            print("antall sette etter sletting: \(fjernetTommeAnswersSeen.count)")
             
-            //loadedQuestions["C"]!.seenQuestions = fjernetTommeAnswersSeen
-            //loadedQuestions["C"]!.newQuestions = fjernetTommeAnswersNye*/
+            loadedQuestions["8"]!.seenQuestions = fjernetTommeAnswersSeen
+            loadedQuestions["8"]!.newQuestions = fjernetTommeAnswersNye
             //SLETTING SLUTT - HUSK Å SVARE PÅ ET SPM, SÅ ENDRINGER BLIR LAGRET
             
             questions = loadedQuestions
         } else {
             
-            let nye = linesToQuestions(lines: loadQuestionsFromResources(resource: "7-nye"))
+            /*let nye = linesToQuestions(lines: loadQuestionsFromResources(resource: "7-nye"))
             let mature = linesToQuestions(lines: loadQuestionsFromResources(resource: "7-sett"), isMature: true)
                         
             var alleSjuere = [Question]()
@@ -200,12 +213,13 @@ class SessionHandler : NSObject, WCSessionDelegate {
                 alleSjuere.append(nye[index])
             }
             
-            print("alleSjuere: \(alleSjuere.count)")
-                        
-            questions["7"] = Questions(newQuestions: alleSjuere)
-            questions["8"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "8-anki")))
-            questions["C"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "C-anki")))
-            questions["W"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "W-anki")))
+            print("alleSjuere: \(alleSjuere.count)")*/
+            //questions["7"] = Questions(newQuestions: alleSjuere)
+            
+            questions["7"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "ERANSTLIK-7")))
+            questions["8"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "ERANSTLIK-8")))
+            questions["C"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "ERANSTLIK-C")))
+            questions["W"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "ERANSTLIK-W")))
         }
     }
     
