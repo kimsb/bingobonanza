@@ -99,11 +99,13 @@ class SessionHandler : NSObject, WCSessionDelegate {
         if (question != nil) {
             replyHandler(["anagram": question!.anagram,
             "answers": question!.answers,
-            "due": getDue()])
+            "due": getDue(),
+            "percentage": getPercentage()])
         } else {
             replyHandler(["anagram": "FAAAAIL",
             "answers": "feilfeil",
-            "due": 999])
+            "due": 999,
+            "percentage": "0.00"])
         }
         
     }
@@ -112,8 +114,8 @@ class SessionHandler : NSObject, WCSessionDelegate {
         questions[currentKey]!.getDue()
     }
     
-    func getPercentage() -> Double {
-        questions[currentKey]!.getPercentage()
+    func getPercentage() -> String {
+        String(format: "%.2f", questions[currentKey]!.getPercentage())
     }
     
     func getSeenCount() -> Int {

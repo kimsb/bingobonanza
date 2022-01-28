@@ -56,8 +56,10 @@ class InterfaceController: WKInterfaceController {
                 self.anagram = (response["anagram"]! as! String)
                 
                 let hasDue = response["due"]! as! Int > 0
-                let due = hasDue ? " - Due: \(response["due"]! as! Int)" : ""
-                self.infoLabel.setText("\(self.listKeys[self.currentList])\(due)")
+                let due = hasDue ? ": \(response["due"]! as! Int)" : ""
+                let percentage = "\(response["percentage"]! as! String)"
+                                
+                self.infoLabel.setText("\(self.listKeys[self.currentList])\(due): \(percentage)%")
 
                 self.anagramLabel.setText("\(self.anagram!)")
                 

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BD3B6822777B3B900A9CFF5 /* ERANSTLIK-7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BD3B6812777B3B900A9CFF5 /* ERANSTLIK-7.txt */; };
+		3BD3B6842777B3BF00A9CFF5 /* ERANSTLIK-8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BD3B6832777B3BF00A9CFF5 /* ERANSTLIK-8.txt */; };
+		3BD3B6862777B3C400A9CFF5 /* ERANSTLIK-C.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BD3B6852777B3C400A9CFF5 /* ERANSTLIK-C.txt */; };
+		3BD3B6882777B3C900A9CFF5 /* ERANSTLIK-W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BD3B6872777B3C900A9CFF5 /* ERANSTLIK-W.txt */; };
 		F31FDA7923B79EEA00CF5DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDA7823B79EEA00CF5DCF /* AppDelegate.swift */; };
 		F31FDA7B23B79EEA00CF5DCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDA7A23B79EEA00CF5DCF /* SceneDelegate.swift */; };
 		F31FDA7D23B79EEA00CF5DCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDA7C23B79EEA00CF5DCF /* ViewController.swift */; };
@@ -82,6 +86,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3BD3B6812777B3B900A9CFF5 /* ERANSTLIK-7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ERANSTLIK-7.txt"; sourceTree = "<group>"; };
+		3BD3B6832777B3BF00A9CFF5 /* ERANSTLIK-8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ERANSTLIK-8.txt"; sourceTree = "<group>"; };
+		3BD3B6852777B3C400A9CFF5 /* ERANSTLIK-C.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ERANSTLIK-C.txt"; sourceTree = "<group>"; };
+		3BD3B6872777B3C900A9CFF5 /* ERANSTLIK-W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ERANSTLIK-W.txt"; sourceTree = "<group>"; };
 		F31FDA7523B79EEA00CF5DCF /* bingobonanza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bingobonanza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F31FDA7823B79EEA00CF5DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F31FDA7A23B79EEA00CF5DCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +209,10 @@
 		F3F3352723BF2EA0006CCCFA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3BD3B6852777B3C400A9CFF5 /* ERANSTLIK-C.txt */,
+				3BD3B6832777B3BF00A9CFF5 /* ERANSTLIK-8.txt */,
+				3BD3B6812777B3B900A9CFF5 /* ERANSTLIK-7.txt */,
+				3BD3B6872777B3C900A9CFF5 /* ERANSTLIK-W.txt */,
 				F36EC562243BBC1B0041DC36 /* slettes-8.txt */,
 				F36EC560243BB7EA0041DC36 /* slettes-7.txt */,
 				F36EC55C243BACF20041DC36 /* puggeliste-nye-2020.txt */,
@@ -316,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BD3B6862777B3C400A9CFF5 /* ERANSTLIK-C.txt in Resources */,
 				F38FE8EC23BFDC44003BF0AF /* 7-sett.txt in Resources */,
 				F36EC563243BBC1B0041DC36 /* slettes-8.txt in Resources */,
 				F36EC561243BB7EA0041DC36 /* slettes-7.txt in Resources */,
@@ -325,8 +338,11 @@
 				F31FDA8023B79EEA00CF5DCF /* Main.storyboard in Resources */,
 				F38FE8ED23BFDC44003BF0AF /* 7-nye.txt in Resources */,
 				F3F3352F23BF37ED006CCCFA /* C-anki.txt in Resources */,
+				3BD3B6842777B3BF00A9CFF5 /* ERANSTLIK-8.txt in Resources */,
+				3BD3B6822777B3B900A9CFF5 /* ERANSTLIK-7.txt in Resources */,
 				F3F3352D23BF37E0006CCCFA /* 8-anki.txt in Resources */,
 				F36EC55D243BACF20041DC36 /* puggeliste-nye-2020.txt in Resources */,
+				3BD3B6882777B3C900A9CFF5 /* ERANSTLIK-W.txt in Resources */,
 				F3F3353123BF3805006CCCFA /* W-anki.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,6 +556,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QKQ4UUV4L7;
 				INFOPLIST_FILE = "bingobonanza WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -547,7 +564,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = moomin.bingobonanza.watchkitapp.watchkitextension;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = kimbovim.bingobonanza.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -562,6 +580,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QKQ4UUV4L7;
 				INFOPLIST_FILE = "bingobonanza WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -569,7 +588,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = moomin.bingobonanza.watchkitapp.watchkitextension;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = kimbovim.bingobonanza.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -585,10 +605,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QKQ4UUV4L7;
 				IBSC_MODULE = bingobonanza_WatchKit_Extension;
 				INFOPLIST_FILE = "bingobonanza WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = moomin.bingobonanza.watchkitapp;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = kimbovim.bingobonanza.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -604,10 +626,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QKQ4UUV4L7;
 				IBSC_MODULE = bingobonanza_WatchKit_Extension;
 				INFOPLIST_FILE = "bingobonanza WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = moomin.bingobonanza.watchkitapp;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = kimbovim.bingobonanza.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -622,13 +646,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QKQ4UUV4L7;
 				INFOPLIST_FILE = bingobonanza/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = moomin.bingobonanza;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = kimbovim.bingobonanza;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -640,13 +666,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QKQ4UUV4L7;
 				INFOPLIST_FILE = bingobonanza/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = moomin.bingobonanza;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = kimbovim.bingobonanza;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
