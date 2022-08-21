@@ -139,90 +139,43 @@ class SessionHandler : NSObject, WCSessionDelegate {
     }
     
     func loadQuestions() {
+        
         if let loadedQuestions = NSKeyedUnarchiver.unarchiveObject(withFile: Questions.ArchiveURL.path) as? [String:Questions] {
             
-            //LEGGE TIL NYE ORD
-            /*let nye7 = linesToQuestions(lines: loadQuestionsFromResources(resource: "puggeliste-nye-2020"))
-            
-            print("første nye: \(nye7.first!.anagram): \(nye7.first!.answers)")
-            
-            let nyeAnagrammer = nye7.map { $0.anagram }
-            let fjernetNewQuestions = loadedQuestions["7"]!.newQuestions.filter{!nyeAnagrammer.contains($0.anagram)}
-            
-            let fjernetSeenQuestions = loadedQuestions["7"]!.seenQuestions.filter{!nyeAnagrammer.contains($0.anagram)}
-            
-            let nyeNewMedGamleNew = nye7 + fjernetNewQuestions
-            
-            loadedQuestions["7"]!.seenQuestions = fjernetSeenQuestions
-            loadedQuestions["7"]!.newQuestions = nyeNewMedGamleNew*/
-            
-            
-            
-            
-            //SLETTING
-            let slettes = loadQuestionsFromResources(resource: "slettes-8")
-            
-            //SLETTE FRA NEW
-            let loadedNye = loadedQuestions["8"]!.newQuestions
-            
-            print("antall usette: \(loadedNye.count)")
-            
-            let slettetAnswersNye = loadedNye.map { (question: Question) -> Question in
-                let mutable = question
-                mutable.answers = question.answers.filter{!slettes.contains($0)}
-                return mutable
-            }
-            let fjernetTommeAnswersNye = slettetAnswersNye.filter{!$0.answers.isEmpty}
-            print("antall usette etter sletting: \(fjernetTommeAnswersNye.count)")
-            
-            //SLETTE FRA SEEN
-            let loadedSeen = loadedQuestions["8"]!.seenQuestions
-                       
-            print("antall sette: \(loadedSeen.count)")
-                       
-            let slettetAnswersSeen = loadedSeen.map { (question: Question) -> Question in
-                let mutable = question
-                mutable.answers = question.answers.filter{!slettes.contains($0)}
-                
-                //For å legge til enkeltOrd (i anagrammer som finnes og er sett)
-                if (mutable.anagram == "AEGILORT" && !mutable.answers.contains("LIGATOER")) {
-                    print("legger til LIGATOER")
-                    mutable.answers.append("LIGATOER")
-                    
-                    print(mutable.answers)
-                }
-                
-                return mutable
-            }
-            let fjernetTommeAnswersSeen = slettetAnswersSeen.filter{!$0.answers.isEmpty}
-            print("antall sette etter sletting: \(fjernetTommeAnswersSeen.count)")
-            
-            loadedQuestions["8"]!.seenQuestions = fjernetTommeAnswersSeen
-            loadedQuestions["8"]!.newQuestions = fjernetTommeAnswersNye
-            //SLETTING SLUTT - HUSK Å SVARE PÅ ET SPM, SÅ ENDRINGER BLIR LAGRET
+            print("finner load")
             
             questions = loadedQuestions
         } else {
             
-            /*let nye = linesToQuestions(lines: loadQuestionsFromResources(resource: "7-nye"))
-            let mature = linesToQuestions(lines: loadQuestionsFromResources(resource: "7-sett"), isMature: true)
-                        
-            var alleSjuere = [Question]()
-            for index in 0..<nye.count {
-                if (index < mature.count) {
-                    alleSjuere.append(mature[index])
-                }
-                alleSjuere.append(nye[index])
-            }
-            
-            print("alleSjuere: \(alleSjuere.count)")*/
-            //questions["7"] = Questions(newQuestions: alleSjuere)
-            
-            questions["7"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "ERANSTLIK-7")))
-            questions["8"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "ERANSTLIK-8")))
-            questions["C"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "ERANSTLIK-C")))
-            questions["W"] = Questions(newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "ERANSTLIK-W")))
+            questions["7"] = Questions(
+                newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "2022-unseen-7")),
+                seenQuestions: linesToSeenQuestions(lines: loadQuestionsFromResources(resource: "2022-seen-7")))
+            questions["8"] = Questions(
+                newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "2022-unseen-8")),
+                seenQuestions: linesToSeenQuestions(lines: loadQuestionsFromResources(resource: "2022-seen-8")))
+            questions["C"] = Questions(
+                newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "2022-erantslik-C")))
+            questions["W"] = Questions(
+                newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "2022-erantslik-W")))
         }
+    }
+    
+    func linesToSeenQuestions(lines: [String]) -> [Question] {
+        let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            dateFormatter.timeZone = TimeZone.current
+            dateFormatter.locale = Locale.current
+        var questionArray = [Question]()
+        for line in lines {
+            let components = line.components(separatedBy: ";")
+            let componentsB = components[0].components(separatedBy: " ")
+            let daysToAdd = Int(componentsB[0])!
+            let timeToShow = dateFormatter.date(from: "\(componentsB[1]) 00:00:00")!
+            let anagram = componentsB[2]
+            let answers = components[1].components(separatedBy: " ")
+            questionArray.append(Question(anagram: anagram, answers: answers, timeToShow: timeToShow, daysToAdd: daysToAdd))
+        }
+        return questionArray
     }
     
     func linesToQuestions(lines: [String], isMature: Bool = false) -> [Question] {
@@ -235,6 +188,7 @@ class SessionHandler : NSObject, WCSessionDelegate {
         }
         return questionArray
     }
+    
     
     func loadQuestionsFromResources(resource: String) -> [String] {
         let path = Bundle.main.path(forResource: resource, ofType: "txt")
