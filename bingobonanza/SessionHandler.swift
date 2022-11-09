@@ -114,8 +114,21 @@ class SessionHandler : NSObject, WCSessionDelegate {
         
     }
     
-    func getNewToday() -> Int {
-        questions[currentKey]!.getNewToday()
+    func getNewTodayText() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        let octoberFirst = formatter.date(from: "2023/10/01 00:00")!
+        let today = Calendar.current.startOfDay(for: Date())
+        let numberOfDaysTilOctoberFirst = Calendar.current.dateComponents([.day], from: today, to: octoberFirst).day!
+        let newToday = questions[currentKey]!.getNewToday()
+        if (currentKey == "C" || currentKey == "W" || numberOfDaysTilOctoberFirst < 0) {
+            return newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
+        }
+        if (currentKey == "7") {
+            return newToday >= questions["7"]!.getNewCount() / numberOfDaysTilOctoberFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
+        }
+        // current == 8 ønsker 20% (13130)
+        return newToday >= (13130 - questions["8"]!.getSeen()) / numberOfDaysTilOctoberFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
     }
     
     func getDue() -> Int {

@@ -44,6 +44,10 @@ class Questions: NSObject, Codable, NSCoding {
     func getSeen() -> Int {
         return seenQuestions.count
     }
+    
+    func getNewCount() -> Int {
+        return newQuestions.count
+    }
  
     func getNextQuestion(lastQuestion: Question? = nil) -> Question {
         if let lastQuestion = lastQuestion {

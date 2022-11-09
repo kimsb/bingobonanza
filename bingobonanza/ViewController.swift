@@ -48,9 +48,9 @@ class ViewController: UIViewController, UITableViewDataSource {
                         
         question = SessionHandler.shared.getNextQuestion(lastAnswered: answered ? question : nil)
         
-        let newToday = SessionHandler.shared.getNewToday()
+        let newTodayText = SessionHandler.shared.getNewTodayText()
         let due = SessionHandler.shared.getDue()
-        infoLabel.text = "\(due > 0 ? "Due: \(due) " : "") (\(SessionHandler.shared.getPercentage())% : \(SessionHandler.shared.getSeenCount())) \(newToday > 0 ? "New: \(newToday) \u{1F44F}" : "")"
+        infoLabel.text = "\(due > 0 ? "Due: \(due) " : "") (\(SessionHandler.shared.getPercentage())% : \(SessionHandler.shared.getSeenCount())) \(newTodayText)"
                 
         anagramLabel.text = question?.anagram
         tableView.reloadData()
