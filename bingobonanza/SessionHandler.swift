@@ -95,6 +95,10 @@ class SessionHandler : NSObject, WCSessionDelegate {
         
         let question = getNextQuestion(lastAnswered: lastQuestion)
         
+        if (question != nil && question!.timeToShow == Date.distantFuture) {
+            question?.firstShown = Date()
+        }
+        
         //dette blir stygt...
         if (question != nil) {
             replyHandler(["anagram": question!.anagram,
@@ -108,6 +112,10 @@ class SessionHandler : NSObject, WCSessionDelegate {
             "percentage": "0.00"])
         }
         
+    }
+    
+    func getNewToday() -> Int {
+        questions[currentKey]!.getNewToday()
     }
     
     func getDue() -> Int {
@@ -143,8 +151,15 @@ class SessionHandler : NSObject, WCSessionDelegate {
         if let loadedQuestions = NSKeyedUnarchiver.unarchiveObject(withFile: Questions.ArchiveURL.path) as? [String:Questions] {
             
             print("finner load")
-            
+
             questions = loadedQuestions
+            
+            //Noen blir lagret med timeToShow = distant future.
+            //Tror kanskje det skjer når både klokka og mobilen er aktiv..?
+            //for question in questions["7"]!.seenQuestions {
+            //    print("\(question.anagram): next: \(question.timeToShow) firstSeen: \(question.firstShown)")
+            //}
+            
         } else {
             
             questions["7"] = Questions(
@@ -178,13 +193,13 @@ class SessionHandler : NSObject, WCSessionDelegate {
         return questionArray
     }
     
-    func linesToQuestions(lines: [String], isMature: Bool = false) -> [Question] {
+    func linesToQuestions(lines: [String]) -> [Question] {
         var questionArray = [Question]()
         for line in lines {
             let components = line.components(separatedBy: ";")
             let anagram = components[0]
             let answers = components[1].components(separatedBy: " ")
-            questionArray.append(Question(anagram: anagram, answers: answers, isMature: isMature))
+            questionArray.append(Question(anagram: anagram, answers: answers))
         }
         return questionArray
     }

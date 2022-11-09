@@ -47,8 +47,10 @@ class ViewController: UIViewController, UITableViewDataSource {
         showingAnswers = false
                         
         question = SessionHandler.shared.getNextQuestion(lastAnswered: answered ? question : nil)
+        
+        let newToday = SessionHandler.shared.getNewToday()
         let due = SessionHandler.shared.getDue()
-        infoLabel.text = "\(due > 0 ? "Due: \(due) " : "") (\(SessionHandler.shared.getPercentage())% : \(SessionHandler.shared.getSeenCount()))"
+        infoLabel.text = "\(due > 0 ? "Due: \(due) " : "") (\(SessionHandler.shared.getPercentage())% : \(SessionHandler.shared.getSeenCount())) \(newToday > 0 ? "New: \(newToday) \u{1F44F}" : "")"
                 
         anagramLabel.text = question?.anagram
         tableView.reloadData()
@@ -63,6 +65,9 @@ class ViewController: UIViewController, UITableViewDataSource {
             
             showNextQuestion(answered: true)
         } else {
+            if (question != nil && question!.timeToShow == Date.distantFuture) {
+                question?.firstShown = Date()
+            }
             showingAnswers = true
             tableView.reloadData()
         }

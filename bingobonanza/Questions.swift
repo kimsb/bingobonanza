@@ -29,6 +29,12 @@ class Questions: NSObject, Codable, NSCoding {
         return dueCount
     }
     
+    func getNewToday() -> Int {
+        return seenQuestions.filter { seen in
+            Calendar.current.isDateInToday(seen.firstShown)
+        }.count
+    }
+    
     func getPercentage() -> Double {
         let seen = Double(seenQuestions.count)
         let new = Double(newQuestions.count)
@@ -53,19 +59,6 @@ class Questions: NSObject, Codable, NSCoding {
                 SessionHandler.shared.saveQuestions()
             }
         }
-        
-        //BARE FOR Å SE HVOR MANGE SOM KOMMER:
-        /*var date = seenQuestions.first!.timeToShow
-        var count = 0
-        for q in seenQuestions {
-            if (date == q.timeToShow) {
-                count += 1
-            } else {
-                //print("date: \(date) - \(count)") 
-                date = q.timeToShow
-                count = 0
-            }
-        }*/
         
         
         if (newQuestions.isEmpty || (!seenQuestions.isEmpty && seenQuestions.first!.timeToShow < Date())) {
