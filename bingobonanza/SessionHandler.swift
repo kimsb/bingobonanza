@@ -104,14 +104,27 @@ class SessionHandler : NSObject, WCSessionDelegate {
             replyHandler(["anagram": question!.anagram,
             "answers": question!.answers,
             "due": getDue(),
-            "percentage": getPercentage()])
+            "percentage": getPercentage(),
+            "wellDoneToday": wellDoneToday()])
         } else {
             replyHandler(["anagram": "FAAAAIL",
             "answers": "feilfeil",
             "due": 999,
-            "percentage": "0.00"])
+            "percentage": "0.00",
+            "wellDoneToday": false])
         }
         
+    }
+    
+    func wellDoneToday() -> Bool {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        let octoberFirst = formatter.date(from: "2023/10/01 00:00")!
+        let today = Calendar.current.startOfDay(for: Date())
+        let numberOfDaysTilOctoberFirst = Calendar.current.dateComponents([.day], from: today, to: octoberFirst).day!
+        let newToday = questions[currentKey]!.getNewToday()
+        return (currentKey == "7" && newToday >= questions["7"]!.getNewCount() / numberOfDaysTilOctoberFirst)
+        || (currentKey == "8" && newToday >= (13130 - questions["8"]!.getSeen()) / numberOfDaysTilOctoberFirst)
     }
     
     func getNewTodayText() -> String {

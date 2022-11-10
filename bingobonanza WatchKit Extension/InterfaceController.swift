@@ -58,7 +58,14 @@ class InterfaceController: WKInterfaceController {
                 let hasDue = response["due"]! as! Int > 0
                 let due = hasDue ? ": \(response["due"]! as! Int)" : ""
                 let percentage = "\(response["percentage"]! as! String)"
+                let wellDoneToday = response["wellDoneToday"]! as! Bool
                                 
+                if (wellDoneToday) {
+                    self.infoLabel.setTextColor(UIColor.green)
+                } else {
+                    self.infoLabel.setTextColor(UIColor.white)
+                }
+            
                 self.infoLabel.setText("\(self.listKeys[self.currentList])\(due): \(percentage)%")
 
                 self.anagramLabel.setText("\(self.anagram!)")
