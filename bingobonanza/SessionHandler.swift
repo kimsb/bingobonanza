@@ -104,13 +104,15 @@ class SessionHandler : NSObject, WCSessionDelegate {
             replyHandler(["anagram": question!.anagram,
             "answers": question!.answers,
             "due": getDue(),
-            "percentage": getPercentage(),
+            //"percentage": getPercentage(),
+            "newToday": questions[currentKey]!.getNewToday(),
             "wellDoneToday": wellDoneToday()])
         } else {
             replyHandler(["anagram": "FAAAAIL",
             "answers": "feilfeil",
             "due": 999,
-            "percentage": "0.00",
+            //"percentage": "0.00",
+            "newToday": 0,
             "wellDoneToday": false])
         }
         
@@ -123,7 +125,9 @@ class SessionHandler : NSObject, WCSessionDelegate {
         let today = Calendar.current.startOfDay(for: Date())
         let numberOfDaysTilOctoberFirst = Calendar.current.dateComponents([.day], from: today, to: octoberFirst).day!
         let newToday = questions[currentKey]!.getNewToday()
-        return (currentKey == "7" && newToday >= questions["7"]!.getNewCount() / numberOfDaysTilOctoberFirst)
+        return (currentKey == "W" && getDue() == 0)
+        || (currentKey == "C" && newToday >= questions["C"]!.getNewCount() / numberOfDaysTilOctoberFirst)
+        || (currentKey == "7" && newToday >= questions["7"]!.getNewCount() / numberOfDaysTilOctoberFirst)
         || (currentKey == "8" && newToday >= (13130 - questions["8"]!.getSeen()) / numberOfDaysTilOctoberFirst)
     }
     
@@ -134,8 +138,11 @@ class SessionHandler : NSObject, WCSessionDelegate {
         let today = Calendar.current.startOfDay(for: Date())
         let numberOfDaysTilOctoberFirst = Calendar.current.dateComponents([.day], from: today, to: octoberFirst).day!
         let newToday = questions[currentKey]!.getNewToday()
-        if (currentKey == "C" || currentKey == "W" || numberOfDaysTilOctoberFirst < 0) {
-            return newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
+        if (currentKey == "W") {
+            return getDue() == 0 ? "\u{1F389}\u{1F929}\u{1F57A}" : ""
+        }
+        if (currentKey == "C") {
+            return newToday >= questions["C"]!.getNewCount() / numberOfDaysTilOctoberFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
         }
         if (currentKey == "7") {
             return newToday >= questions["7"]!.getNewCount() / numberOfDaysTilOctoberFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
