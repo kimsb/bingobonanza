@@ -109,7 +109,7 @@ class SessionHandler : NSObject, WCSessionDelegate {
             "wellDoneToday": wellDoneToday()])
         } else {
             replyHandler(["anagram": "FAAAAIL",
-            "answers": "feilfeil",
+            "answers": ["feilfeil"],
             "due": 999,
             //"percentage": "0.00",
             "newToday": 0,
@@ -121,34 +121,34 @@ class SessionHandler : NSObject, WCSessionDelegate {
     func wellDoneToday() -> Bool {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        let octoberFirst = formatter.date(from: "2023/10/01 00:00")!
+        let janFirst = formatter.date(from: "2024/01/01 00:00")!
         let today = Calendar.current.startOfDay(for: Date())
-        let numberOfDaysTilOctoberFirst = Calendar.current.dateComponents([.day], from: today, to: octoberFirst).day!
+        let numberOfDaysTilJanFirst = Calendar.current.dateComponents([.day], from: today, to: janFirst).day!
         let newToday = questions[currentKey]!.getNewToday()
-        return (currentKey == "W" && getDue() == 0)
-        || (currentKey == "C" && newToday >= questions["C"]!.getNewCount() / numberOfDaysTilOctoberFirst)
-        || (currentKey == "7" && newToday >= questions["7"]!.getNewCount() / numberOfDaysTilOctoberFirst)
-        || (currentKey == "8" && newToday >= (13130 - questions["8"]!.getSeen()) / numberOfDaysTilOctoberFirst)
+        return (currentKey == "W" && newToday >= questions["W"]!.getNewCount() / numberOfDaysTilJanFirst)
+        || (currentKey == "C" && newToday >= questions["C"]!.getNewCount() / numberOfDaysTilJanFirst)
+        || (currentKey == "7" && newToday >= questions["7"]!.getNewCount() / numberOfDaysTilJanFirst)
+        || (currentKey == "8" && newToday >= (13130 - questions["8"]!.getSeen()) / numberOfDaysTilJanFirst)
     }
     
     func getNewTodayText() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        let octoberFirst = formatter.date(from: "2023/10/01 00:00")!
+        let janFirst = formatter.date(from: "2024/01/01 00:00")!
         let today = Calendar.current.startOfDay(for: Date())
-        let numberOfDaysTilOctoberFirst = Calendar.current.dateComponents([.day], from: today, to: octoberFirst).day!
+        let numberOfDaysTilJanFirst = Calendar.current.dateComponents([.day], from: today, to: janFirst).day!
         let newToday = questions[currentKey]!.getNewToday()
         if (currentKey == "W") {
-            return getDue() == 0 ? "\u{1F389}\u{1F929}\u{1F57A}" : ""
+            return newToday >= questions["W"]!.getNewCount() / numberOfDaysTilJanFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
         }
         if (currentKey == "C") {
-            return newToday >= questions["C"]!.getNewCount() / numberOfDaysTilOctoberFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
+            return newToday >= questions["C"]!.getNewCount() / numberOfDaysTilJanFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
         }
         if (currentKey == "7") {
-            return newToday >= questions["7"]!.getNewCount() / numberOfDaysTilOctoberFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
+            return newToday >= questions["7"]!.getNewCount() / numberOfDaysTilJanFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
         }
         // current == 8 ønsker 20% (13130)
-        return newToday >= (13130 - questions["8"]!.getSeen()) / numberOfDaysTilOctoberFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
+        return newToday >= (13130 - questions["8"]!.getSeen()) / numberOfDaysTilJanFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
     }
     
     func getDue() -> Int {
@@ -187,6 +187,43 @@ class SessionHandler : NSObject, WCSessionDelegate {
 
             questions = loadedQuestions
             
+            //for å sette ord som jeg feilaktig har godkjent til å vises i dag:
+            
+            /*let words7 = ["UTJAGET", "VILAJET", "INNRØRT", "VALKNUT", "PATEENE"]
+            for question in questions["7"]!.seenQuestions {
+                for answer in question.answers {
+                    if (words7.contains(answer)) {
+                        question.timeToShow = Date()
+                        question.daysToAdd = 1
+                        print("setter \(answer) til å vises i dag")
+                    }
+                }
+            }
+             */
+            
+            /*
+            let words8 = ["DALGRYTE", "DØLEKONA", "GRASDEKT", "KRANSØYE"]
+            for question in questions["8"]!.seenQuestions {
+                for answer in question.answers {
+                    if (words8.contains(answer)) {
+                        question.timeToShow = Date()
+                        question.daysToAdd = 1
+                        print("setter \(answer) til å vises i dag")
+                    }
+                }
+            }*/
+            
+            /*for question in questions["8"]!.seenQuestions {
+                    print("\(question.anagram) \(question.daysToAdd) \(question.wrongGuessCount) \(question.timeToShow) \(question.firstShown)")
+            }*/
+            
+            /*for question in questions["8"]!.seenQuestions {
+                if (question.timeToShow == Date.distantFuture) {
+                    print("\(question.anagram): next: \(question.timeToShow) firstSeen: \(question.firstShown)")
+                    question.timeToShow = Date()
+                }
+            }*/
+            
             //Noen blir lagret med timeToShow = distant future.
             //Tror kanskje det skjer når både klokka og mobilen er aktiv..?
             //for question in questions["7"]!.seenQuestions {
@@ -196,15 +233,15 @@ class SessionHandler : NSObject, WCSessionDelegate {
         } else {
             
             questions["7"] = Questions(
-                newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "2022-unseen-7")),
-                seenQuestions: linesToSeenQuestions(lines: loadQuestionsFromResources(resource: "2022-seen-7")))
+                newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "2023-unseen-7")),
+                seenQuestions: linesToSeenQuestions(lines: loadQuestionsFromResources(resource: "2023-seen-7")))
             questions["8"] = Questions(
-                newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "2022-unseen-8")),
-                seenQuestions: linesToSeenQuestions(lines: loadQuestionsFromResources(resource: "2022-seen-8")))
+                newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "2023-unseen-8")),
+                seenQuestions: linesToSeenQuestions(lines: loadQuestionsFromResources(resource: "2023-seen-8")))
             questions["C"] = Questions(
-                newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "2022-erantslik-C")))
+                newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "2023-erantslik-C")))
             questions["W"] = Questions(
-                newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "2022-erantslik-W")))
+                newQuestions: linesToQuestions(lines: loadQuestionsFromResources(resource: "2023-erantslik-W")))
         }
     }
     
@@ -218,10 +255,12 @@ class SessionHandler : NSObject, WCSessionDelegate {
             let components = line.components(separatedBy: ";")
             let componentsB = components[0].components(separatedBy: " ")
             let daysToAdd = Int(componentsB[0])!
-            let timeToShow = dateFormatter.date(from: "\(componentsB[1]) 00:00:00")!
-            let anagram = componentsB[2]
+            let wrongGuessCount = Int(componentsB[1])!
+            let timeToShow = dateFormatter.date(from: "\(componentsB[2]) 00:00:00")!
+            let firstShown = dateFormatter.date(from: "\(componentsB[3]) 00:00:00")!
+            let anagram = componentsB[4]
             let answers = components[1].components(separatedBy: " ")
-            questionArray.append(Question(anagram: anagram, answers: answers, timeToShow: timeToShow, daysToAdd: daysToAdd))
+            questionArray.append(Question(anagram: anagram, answers: answers, timeToShow: timeToShow, daysToAdd: daysToAdd, wrongGuessCount: wrongGuessCount, firstShown: firstShown))
         }
         return questionArray
     }

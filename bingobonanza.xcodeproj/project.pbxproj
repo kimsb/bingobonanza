@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3BFA7BFC28B28DBD0025F618 /* 2022-erantslik-C.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BFA7BF628B28DBD0025F618 /* 2022-erantslik-C.txt */; };
-		3BFA7BFD28B28DBD0025F618 /* 2022-seen-7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BFA7BF728B28DBD0025F618 /* 2022-seen-7.txt */; };
-		3BFA7BFE28B28DBD0025F618 /* 2022-erantslik-W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BFA7BF828B28DBD0025F618 /* 2022-erantslik-W.txt */; };
-		3BFA7BFF28B28DBD0025F618 /* 2022-seen-8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BFA7BF928B28DBD0025F618 /* 2022-seen-8.txt */; };
-		3BFA7C0028B28DBD0025F618 /* 2022-unseen-7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BFA7BFA28B28DBD0025F618 /* 2022-unseen-7.txt */; };
-		3BFA7C0128B28DBD0025F618 /* 2022-unseen-8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BFA7BFB28B28DBD0025F618 /* 2022-unseen-8.txt */; };
+		3BCB91E22A93F70B007DE874 /* 2023-erantslik-8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB91DA2A93F70A007DE874 /* 2023-erantslik-8.txt */; };
+		3BCB91E32A93F70B007DE874 /* 2023-unseen-7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB91DB2A93F70A007DE874 /* 2023-unseen-7.txt */; };
+		3BCB91E42A93F70B007DE874 /* 2023-erantslik-W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB91DC2A93F70A007DE874 /* 2023-erantslik-W.txt */; };
+		3BCB91E52A93F70B007DE874 /* 2023-erantslik-7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB91DD2A93F70A007DE874 /* 2023-erantslik-7.txt */; };
+		3BCB91E62A93F70B007DE874 /* 2023-seen-8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB91DE2A93F70A007DE874 /* 2023-seen-8.txt */; };
+		3BCB91E72A93F70B007DE874 /* 2023-unseen-8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB91DF2A93F70B007DE874 /* 2023-unseen-8.txt */; };
+		3BCB91E82A93F70B007DE874 /* 2023-erantslik-C.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB91E02A93F70B007DE874 /* 2023-erantslik-C.txt */; };
+		3BCB91E92A93F70B007DE874 /* 2023-seen-7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB91E12A93F70B007DE874 /* 2023-seen-7.txt */; };
 		F31FDA7923B79EEA00CF5DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDA7823B79EEA00CF5DCF /* AppDelegate.swift */; };
 		F31FDA7B23B79EEA00CF5DCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDA7A23B79EEA00CF5DCF /* SceneDelegate.swift */; };
 		F31FDA7D23B79EEA00CF5DCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FDA7C23B79EEA00CF5DCF /* ViewController.swift */; };
@@ -79,12 +81,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3BFA7BF628B28DBD0025F618 /* 2022-erantslik-C.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2022-erantslik-C.txt"; sourceTree = "<group>"; };
-		3BFA7BF728B28DBD0025F618 /* 2022-seen-7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2022-seen-7.txt"; sourceTree = "<group>"; };
-		3BFA7BF828B28DBD0025F618 /* 2022-erantslik-W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2022-erantslik-W.txt"; sourceTree = "<group>"; };
-		3BFA7BF928B28DBD0025F618 /* 2022-seen-8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2022-seen-8.txt"; sourceTree = "<group>"; };
-		3BFA7BFA28B28DBD0025F618 /* 2022-unseen-7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2022-unseen-7.txt"; sourceTree = "<group>"; };
-		3BFA7BFB28B28DBD0025F618 /* 2022-unseen-8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2022-unseen-8.txt"; sourceTree = "<group>"; };
+		3BCB91DA2A93F70A007DE874 /* 2023-erantslik-8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2023-erantslik-8.txt"; sourceTree = "<group>"; };
+		3BCB91DB2A93F70A007DE874 /* 2023-unseen-7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2023-unseen-7.txt"; sourceTree = "<group>"; };
+		3BCB91DC2A93F70A007DE874 /* 2023-erantslik-W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2023-erantslik-W.txt"; sourceTree = "<group>"; };
+		3BCB91DD2A93F70A007DE874 /* 2023-erantslik-7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2023-erantslik-7.txt"; sourceTree = "<group>"; };
+		3BCB91DE2A93F70A007DE874 /* 2023-seen-8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2023-seen-8.txt"; sourceTree = "<group>"; };
+		3BCB91DF2A93F70B007DE874 /* 2023-unseen-8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2023-unseen-8.txt"; sourceTree = "<group>"; };
+		3BCB91E02A93F70B007DE874 /* 2023-erantslik-C.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2023-erantslik-C.txt"; sourceTree = "<group>"; };
+		3BCB91E12A93F70B007DE874 /* 2023-seen-7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2023-seen-7.txt"; sourceTree = "<group>"; };
 		F31FDA7523B79EEA00CF5DCF /* bingobonanza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bingobonanza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F31FDA7823B79EEA00CF5DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F31FDA7A23B79EEA00CF5DCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,12 +199,14 @@
 		F3F3352723BF2EA0006CCCFA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3BFA7BF628B28DBD0025F618 /* 2022-erantslik-C.txt */,
-				3BFA7BF828B28DBD0025F618 /* 2022-erantslik-W.txt */,
-				3BFA7BF728B28DBD0025F618 /* 2022-seen-7.txt */,
-				3BFA7BF928B28DBD0025F618 /* 2022-seen-8.txt */,
-				3BFA7BFA28B28DBD0025F618 /* 2022-unseen-7.txt */,
-				3BFA7BFB28B28DBD0025F618 /* 2022-unseen-8.txt */,
+				3BCB91DD2A93F70A007DE874 /* 2023-erantslik-7.txt */,
+				3BCB91DA2A93F70A007DE874 /* 2023-erantslik-8.txt */,
+				3BCB91E02A93F70B007DE874 /* 2023-erantslik-C.txt */,
+				3BCB91DC2A93F70A007DE874 /* 2023-erantslik-W.txt */,
+				3BCB91E12A93F70B007DE874 /* 2023-seen-7.txt */,
+				3BCB91DE2A93F70A007DE874 /* 2023-seen-8.txt */,
+				3BCB91DB2A93F70A007DE874 /* 2023-unseen-7.txt */,
+				3BCB91DF2A93F70B007DE874 /* 2023-unseen-8.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -307,15 +313,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BFA7C0028B28DBD0025F618 /* 2022-unseen-7.txt in Resources */,
-				3BFA7BFF28B28DBD0025F618 /* 2022-seen-8.txt in Resources */,
+				3BCB91E52A93F70B007DE874 /* 2023-erantslik-7.txt in Resources */,
+				3BCB91E62A93F70B007DE874 /* 2023-seen-8.txt in Resources */,
+				3BCB91E22A93F70B007DE874 /* 2023-erantslik-8.txt in Resources */,
+				3BCB91E82A93F70B007DE874 /* 2023-erantslik-C.txt in Resources */,
+				3BCB91E42A93F70B007DE874 /* 2023-erantslik-W.txt in Resources */,
 				F31FDA8523B79EF000CF5DCF /* LaunchScreen.storyboard in Resources */,
+				3BCB91E72A93F70B007DE874 /* 2023-unseen-8.txt in Resources */,
 				F31FDA8223B79EF000CF5DCF /* Assets.xcassets in Resources */,
-				3BFA7BFD28B28DBD0025F618 /* 2022-seen-7.txt in Resources */,
 				F31FDA8023B79EEA00CF5DCF /* Main.storyboard in Resources */,
-				3BFA7BFE28B28DBD0025F618 /* 2022-erantslik-W.txt in Resources */,
-				3BFA7BFC28B28DBD0025F618 /* 2022-erantslik-C.txt in Resources */,
-				3BFA7C0128B28DBD0025F618 /* 2022-unseen-8.txt in Resources */,
+				3BCB91E32A93F70B007DE874 /* 2023-unseen-7.txt in Resources */,
+				3BCB91E92A93F70B007DE874 /* 2023-seen-7.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
