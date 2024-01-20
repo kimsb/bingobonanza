@@ -121,20 +121,20 @@ class SessionHandler : NSObject, WCSessionDelegate {
     func wellDoneToday() -> Bool {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        let janFirst = formatter.date(from: "2024/01/01 00:00")!
+        let janFirst = formatter.date(from: "2025/01/01 00:00")!
         let today = Calendar.current.startOfDay(for: Date())
         let numberOfDaysTilJanFirst = Calendar.current.dateComponents([.day], from: today, to: janFirst).day!
         let newToday = questions[currentKey]!.getNewToday()
         return (currentKey == "W" && newToday >= questions["W"]!.getNewCount() / numberOfDaysTilJanFirst)
         || (currentKey == "C" && newToday >= questions["C"]!.getNewCount() / numberOfDaysTilJanFirst)
         || (currentKey == "7" && newToday >= questions["7"]!.getNewCount() / numberOfDaysTilJanFirst)
-        || (currentKey == "8" && newToday >= (13130 - questions["8"]!.getSeen()) / numberOfDaysTilJanFirst)
+        || (currentKey == "8" && newToday >= (6677 - questions["8"]!.getSeen()) / numberOfDaysTilJanFirst)
     }
     
     func getNewTodayText() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        let janFirst = formatter.date(from: "2024/01/01 00:00")!
+        let janFirst = formatter.date(from: "2025/01/01 00:00")!
         let today = Calendar.current.startOfDay(for: Date())
         let numberOfDaysTilJanFirst = Calendar.current.dateComponents([.day], from: today, to: janFirst).day!
         let newToday = questions[currentKey]!.getNewToday()
@@ -147,8 +147,8 @@ class SessionHandler : NSObject, WCSessionDelegate {
         if (currentKey == "7") {
             return newToday >= questions["7"]!.getNewCount() / numberOfDaysTilJanFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
         }
-        // current == 8 ønsker 20% (13130)
-        return newToday >= (13130 - questions["8"]!.getSeen()) / numberOfDaysTilJanFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
+        // current == 8 ønsker 10% (6677)
+        return newToday >= (6677 - questions["8"]!.getSeen()) / numberOfDaysTilJanFirst ? "New: \(newToday) \u{1F389}\u{1F929}\u{1F57A}" : newToday > 0 ? "New: \(newToday) \u{1F44F}" : ""
     }
     
     func getDue() -> Int {
@@ -189,25 +189,27 @@ class SessionHandler : NSObject, WCSessionDelegate {
             
             //for å sette ord som jeg feilaktig har godkjent til å vises i dag:
             
-            /*let words7 = ["UTJAGET", "VILAJET", "INNRØRT", "VALKNUT", "PATEENE"]
+            /*let words7 = ["DOBØKER", "KAMTANN", "FJØRLUS", "VASSYKT", "PROFANT"]
             for question in questions["7"]!.seenQuestions {
                 for answer in question.answers {
                     if (words7.contains(answer)) {
                         question.timeToShow = Date()
                         question.daysToAdd = 1
+                        question.wrongGuessCount = question.wrongGuessCount + 1
                         print("setter \(answer) til å vises i dag")
                     }
                 }
-            }
-             */
+            }*/
+             
             
-            /*
-            let words8 = ["DALGRYTE", "DØLEKONA", "GRASDEKT", "KRANSØYE"]
+            
+            /*let words8 = ["BORTSELG", "EPARKIET"]
             for question in questions["8"]!.seenQuestions {
                 for answer in question.answers {
                     if (words8.contains(answer)) {
                         question.timeToShow = Date()
                         question.daysToAdd = 1
+                        question.wrongGuessCount = question.wrongGuessCount + 1
                         print("setter \(answer) til å vises i dag")
                     }
                 }
@@ -229,6 +231,12 @@ class SessionHandler : NSObject, WCSessionDelegate {
             //for question in questions["7"]!.seenQuestions {
             //    print("\(question.anagram): next: \(question.timeToShow) firstSeen: \(question.firstShown)")
             //}
+            
+            //For å se hvilke anagrammer jeg sliter mest med:
+            /*for question in questions["8"]!.seenQuestions.sorted(by: { $0.wrongGuessCount < $1.wrongGuessCount }) {
+                print("\(question.wrongGuessCount): \(question.anagram)")
+            }*/
+            
             
         } else {
             

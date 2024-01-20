@@ -60,9 +60,16 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         if (showingAnswers) {
             let location = tapRecognizer.location(in: self.view)
+            let answeredCorrect = location.x > 100
             
-            daysAddedAnimation(text: "\(question!.setTimeToShow(answeredCorrect: location.x > 100))")
+            let daysAdded = question!.setTimeToShow(answeredCorrect: answeredCorrect)
             
+            if (answeredCorrect) {
+                daysAddedAnimation(answeredCorrect: true, text: "\(daysAdded)")
+            } else {
+                daysAddedAnimation(answeredCorrect: false, text: "x \(question!.wrongGuessCount)")
+            }
+                        
             showNextQuestion(answered: true)
         } else {
             if (question != nil && question!.timeToShow == Date.distantFuture) {
@@ -74,9 +81,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         
     }
     
-    func daysAddedAnimation(text: String) {
-        let answeredCorrect = text != "0"
-        daysAddedLabel.text = answeredCorrect ? "+\(text)" : "X"
+    func daysAddedAnimation(answeredCorrect: Bool, text: String) {
+        daysAddedLabel.text = answeredCorrect ? "+\(text)" : "\(text)"
         daysAddedLabel.textColor = answeredCorrect ? UIColor.green : UIColor.red
 
         daysAddedLabel.fadeOutAnimation(completion: {
